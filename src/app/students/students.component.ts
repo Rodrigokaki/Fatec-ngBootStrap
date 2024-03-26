@@ -3,11 +3,11 @@ import { Student } from '../student';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrl: './client.component.css'
+  selector: 'app-students',
+  templateUrl: './students.component.html',
+  styleUrl: './students.component.css'
 })
-export class ClientComponent {
+export class StudentsComponent {
 
   students: Student[] = [
     {
