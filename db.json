@@ -1,0 +1,19 @@
+{
+    "students": [
+      {
+        "id": 1,
+        "name": "Leonardo Alencar",
+        "course": "Computaria"
+      },
+      {
+        "id": 2,
+        "name": "Gabriel Lopez",
+        "course": "Artes Modernas"
+      },
+      {
+        "id": 3,
+        "name": "Gabriel Correa",
+        "course": "Fisica"
+      }
+    ]
+}

@@ -1,39 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Student } from '../student';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { StudentService } from '../student.service';
+
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrl: './students.component.css'
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit {
 
-  students: Student[] = [
-    {
-      id: 1,
-      name: 'Leonardo Alencar',
-      course: 'Computaria'
-    },
-    {
-      id: 2,
-      name: 'Gabriel Lopez',
-      course: 'Artes Modernas'
-    },
-    {
-      id: 3,
-      name: 'Gabriel Correa',
-      course: 'Fisica'
-    }
-  ];
+  students: Student[] = [];
 
   formGroupStudent : FormGroup;
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private service: StudentService){
     this.formGroupStudent = formBuilder.group({
       id : [''],
       name : [''],
       course : ['']
+    });
+  }
+
+  ngOnInit(): void {
+    this.loadStudents();
+  }
+
+  loadStudents(){
+    this.service.getStudents().subscribe({
+      next: data => this.students = data
     });
   }
 
