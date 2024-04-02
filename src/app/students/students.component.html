@@ -1,19 +1,10 @@
 <div class="container">
     <div class="row">
       <div class="col-7 m-auto  bg-light p-5 rounded">
-  
+
         <h1 class="text-center">Cadastro de Alunos</h1>
-  
+
         <form [formGroup]="formGroupStudent">
-          <div class="mb-3">
-            <label for="matricula" class="form-label">Matrícula</label>
-            <input
-              type="text"
-              class="form-control"
-              id="matricula"
-              formControlName="id"
-            />
-          </div>
           <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
             <input
@@ -34,13 +25,14 @@
           </div>
           <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
         </form>
-  
+
         <table class="table table-striped mt-5">
           <thead>
             <tr>
               <th scope="col">Matricula</th>
               <th scope="col">Nome</th>
               <th scope="col">Curso</th>
+              <th class="text-center" scope="col">Opções</th>
             </tr>
           </thead>
           <tbody>
@@ -48,13 +40,16 @@
               <th scope="row">{{ student.id }}</th>
               <td>{{ student.name }}</td>
               <td>{{ student.course }}</td>
+              <td class="d-flex gap-2 justify-content-end">
+                <button class="btn btn-danger" (click)="delete(student)">Remover</button>
+                <button class="btn btn-primary" (click)="edit(student)">Alterar</button>
+              </td>
             </tr>
           </tbody>
         </table>
-  
+
       </div>
     </div>
-  
-  
+
+
   </div>
-  
