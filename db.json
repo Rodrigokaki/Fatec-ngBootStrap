@@ -24,6 +24,11 @@
       "id": 5,
       "name": "Glauco Todesco",
       "course": "Java"
+    },
+    {
+      "id": 6,
+      "name": "Rodrigo",
+      "course": "Ma"
     }
   ]
 }
