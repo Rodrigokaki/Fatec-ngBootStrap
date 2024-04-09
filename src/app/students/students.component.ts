@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../student';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../student.service';
 import { Observable } from 'rxjs';
 
@@ -22,8 +22,8 @@ export class StudentsComponent implements OnInit {
   ) {
     this.formGroupStudent = formBuilder.group({
       id: [''],
-      name: [''],
-      course: [''],
+      name: ['', [Validators.minLength(3), Validators.required]],
+      course: ['', [Validators.required]],
     });
   }
 
@@ -38,19 +38,20 @@ export class StudentsComponent implements OnInit {
   }
 
   save() {
-    //this.students.push(this.formGroupStudent.value);
-    if (this.isEditing) {
-      this.service.update(this.formGroupStudent.value).subscribe({
-        next: () => {
-          this.loadStudents();
-          this.isEditing = false;
-          this.formGroupStudent.reset();
-        },
-      });
-    } else {
-      this.service.save(this.formGroupStudent.value).subscribe({
-        next: (data) => this.students.push(data),
-      });
+    if(this.formGroupStudent.valid){
+      if (this.isEditing) {
+        this.service.update(this.formGroupStudent.value).subscribe({
+          next: () => {
+            this.loadStudents();
+            this.isEditing = false;
+            this.formGroupStudent.reset();
+          },
+        });
+      } else {
+        this.service.save(this.formGroupStudent.value).subscribe({
+          next: (data) => this.students.push(data),
+        });
+      }
     }
   }
 

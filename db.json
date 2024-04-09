@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "name": "Gabriel Lopez 2",
+      "name": "Gabriel Lopez",
       "course": "Artes Moderna"
     },
     {
@@ -24,16 +24,6 @@
       "id": 5,
       "name": "Glauco Todesco",
       "course": "Java"
-    },
-    {
-      "id": 7,
-      "name": "2",
-      "course": "Arroz"
-    },
-    {
-      "id": 8,
-      "name": "2",
-      "course": "3"
     }
   ]
 }
