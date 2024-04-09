@@ -65,4 +65,13 @@ export class StudentsComponent implements OnInit {
     this.formGroupStudent.setValue(student);
     this.isEditing = true;
   }
+
+  get name(): any {
+    return this.formGroupStudent.get("name");
+  }
+
+  get course(): any {
+    return this.formGroupStudent.get("course");
+  }
+
 }
