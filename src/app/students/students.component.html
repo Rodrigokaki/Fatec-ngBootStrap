@@ -1,65 +1,81 @@
 <div class="container">
-    <div class="row">
-      <div class="col-7 m-auto  bg-light p-5 rounded">
+  <div class="row">
+    <div class="col-7 m-auto bg-light p-5 rounded">
+      <h1 class="text-center">Cadastro de Alunos</h1>
 
-        <h1 class="text-center">Cadastro de Alunos</h1>
+      <form [formGroup]="formGroupStudent">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            formControlName="name"
+          />
+          <small
+            class="text-danger"
+            *ngIf="name.hasError('minlength') && name.touched"
+          >
+            * O nome deve ter no mínimo 3 caracteres
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="name.hasError('required') && name.touched"
+          >
+            * O nome é obrigatório
+          </small>
+        </div>
 
-        <form [formGroup]="formGroupStudent">
-          <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input
-              type="text"
-              class="form-control"
-              id="nome"
-              formControlName="name"
-            />
-            <small class="text-danger" *ngIf="name.hasError('minlength') && submited">
-               * O nome deve ter no mínimo 3 caracteres 
-            </small>
-            <small class="text-danger" *ngIf="name.hasError('required') && submited">
-                * O nome é obrigatório
-            </small>
-          </div>
+        <div class="mb-3">
+          <label for="curso" class="form-label">Curso</label>
+          <input
+            type="text"
+            class="form-control"
+            id="curso"
+            formControlName="course"
+          />
+          <small
+            class="text-danger"
+            *ngIf="course.hasError('required') && course.touched"
+          >
+            * O curso deve ser preenchido
+          </small>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="save()"
+          [disabled]="!formGroupStudent.valid"
+        >
+          Salvar
+        </button>
+      </form>
 
-          <div class="mb-3">
-            <label for="curso" class="form-label">Curso</label>
-            <input
-              type="text"
-              class="form-control"
-              id="curso"
-              formControlName="course"
-            />
-            <small class="text-danger" *ngIf="course.hasError('required') && submited">
-               * O curso deve ser preenchido 
-              </small>
-          </div>
-          <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
-        </form>
-
-        <table class="table table-striped mt-5">
-          <thead>
-            <tr>
-              <th scope="col">Matricula</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Curso</th>
-              <th class="text-center" scope="col">Opções</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let student of students">
-              <th scope="row">{{ student.id }}</th>
-              <td>{{ student.name }}</td>
-              <td>{{ student.course }}</td>
-              <td class="d-flex gap-2 justify-content-end">
-                <button class="btn btn-danger" (click)="delete(student)">Remover</button>
-                <button class="btn btn-primary" (click)="edit(student)">Alterar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Matricula</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Curso</th>
+            <th class="text-center" scope="col">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <th scope="row">{{ student.id }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.course }}</td>
+            <td class="d-flex gap-2 justify-content-end">
+              <button class="btn btn-danger" (click)="delete(student)">
+                Remover
+              </button>
+              <button class="btn btn-primary" (click)="edit(student)">
+                Alterar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-
   </div>
+</div>
