@@ -48,14 +48,17 @@ export class StudentsComponent implements OnInit {
             this.isEditing = false;
             this.submited = false;
             this.formGroupStudent.reset();
-          },
+          }
         });
-      } else {
+      } 
+      else {
         this.service.save(this.formGroupStudent.value).subscribe({
           next: (data) => {this.students.push(data);
-          this.submited = false;}
+          this.submited = false;
+          this.formGroupStudent.reset();
+        }
         });
-      }
+      } 
     }
   }
 

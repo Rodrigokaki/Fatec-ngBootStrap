@@ -29,6 +29,11 @@
       "id": 6,
       "name": "Rodrigo",
       "course": "Ma"
+    },
+    {
+      "id": 7,
+      "name": "asd",
+      "course": "asd"
     }
   ]
 }
