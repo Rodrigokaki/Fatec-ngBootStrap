@@ -27,13 +27,18 @@
     },
     {
       "id": 6,
-      "name": "Rodrigo",
-      "course": "Ma"
+      "name": "Vinicius",
+      "course": "Como pegar casadas"
     },
     {
       "id": 7,
-      "name": "Teste",
-      "course": "asd"
+      "name": "Lucas",
+      "course": "Como bangar"
+    },
+    {
+      "id": 8,
+      "name": "Bites",
+      "course": "Como voar"
     }
   ]
 }
